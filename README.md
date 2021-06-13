@@ -9,7 +9,8 @@
 3. Phase 1. Ticket Selling<br>
 4. Phase 2. Raffle Result<br>
 5. Phase 3. Finding Winner<br>
-6. More Technical Details</strong></p>
+6. More Technical Details<br>
+7. Screen Shots</strong></p>
 <h2 id="introduction">Introduction</h2>
 <p>A raffle is a competition that participants join via buying tickets, and in the end, a participant with the winner’s ticket wins the whole collected money. In a 50/50 scenario, 50% of the collected money is donated to the charity while the winner participant wins the rest.</p>
 <p>We implemented the raffle 50/50 dApp on top of the ergo blockchain. Despite the name of the raffle, this implementation is flexible enough to pay the charity and winner any predefined percentage (we take 10% of the money as the service fee). As we want to make sure that we will raise enough donations to the charity within a deadline, we define these two values (i.e. <code>deadline</code> and <code>minToRaise</code>) at the beginning. If the raffle could collect enough budget in that period, we claim that the raffle was successful, and then charity, winner, and service will charge accordingly. Otherwise, the raffle is unsuccessful, and it will pay back all the participants the sold tickets prices.</p>
@@ -68,4 +69,12 @@
 <p>2- <strong>Raffle Service Token</strong></p>
 <p>We considered a special token as the <em>raffle service token</em> that identifies the valid raffles which are using our service. This type of token issued in the service initialization, and all of them are under the control of our service. Each user that wants to start a new raffle sends a request to the service, if his inputs were acceptable we create a raffle box with his specified setting and one <em>raffle service token</em> which validates this raffle. Finally, after the deadline of the raffle and introducing winner or refunding participants, we take back the <em>raffle service token</em> and officially end that raffle.</p>
 <p>This token can also be used for finding valid active raffles. Anyone who knows the <em>raffle service token id</em> can request its unspent boxes from the explorer and list all active raffles. We also can use this feature in our dApp too and remove the need for a centralized DataBase.</p>
+
+<h2 id="SC">Screen Shots</h2>
+<h3 id="SC">Active Raffles</h3>
+<p><img src="https://github.com/NazeriMahdi2001/Raffle-Doc/blob/master/Images/SC_Active_raffles.png?raw=true" alt="enter image description here"></p>
+<h3 id="SC">Raffle Participation</h3>
+<p><img src="https://github.com/NazeriMahdi2001/Raffle-Doc/blob/master/Images/SC_Participation.png?raw=true" alt="enter image description here"></p>
+<h3 id="SC">Create New Raffle</h3>
+<p><img src="https://github.com/NazeriMahdi2001/Raffle-Doc/blob/master/Images/SC_create_raffle.png?raw=true" alt="enter image description here"></p>
 
